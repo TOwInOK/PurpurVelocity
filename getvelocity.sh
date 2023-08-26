@@ -21,8 +21,7 @@ else
      echo "${downloaded_sha256} << download"
      echo "${SHA256} << SAVED"
      echo "be caraful it's Paper Team..."
-  fi
-done
+fi
 #code down bellow is work but not for files from PaperMC...
 # Download the Purpur server JAR
 # while true; do
