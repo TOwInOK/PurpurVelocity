@@ -59,8 +59,8 @@ ENV JAVAFLAGS=${java_flags}
 WORKDIR /data
 
 COPY /docker-entrypoint.sh /opt/minecraft
-RUN chmod +x /opt/minecraft/docker-entrypoint.sh && \
-    pk del curl \
+RUN chmod +x /opt/minecraft/docker-entrypoint.sh
+RUN pk del curl && \
     pk del jq
 
 # Entrypoint
