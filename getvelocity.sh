@@ -20,14 +20,13 @@ downloaded_sha256=$(sha256sum "velocity.jar" | awk '{print $1}')
 #Download the Purpur server JAR
 while true; do
   # download
-  curl -O "$DOWNLOAD_URL"
+  curl -o velocity.jar "$DOWNLOAD_URL"
   echo `ls .`
   #mathing sha
  downloaded_sha256="$(sha256sum "velocity.jar" | awk '{print $1}')"
   # Compair SHA256
   if [ $downloaded_sha256 = $SHA256 ]; then
     echo "Velocity server downloaded successfully."
-    mv ${LATEST_VERSION}-${LATEST_BUILD}.jar velocity.jar
     break
   else
     echo "Velocity server downloaded with error"
