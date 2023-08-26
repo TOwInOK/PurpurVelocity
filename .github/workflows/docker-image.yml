@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-publish:
-    runs-on: docker://alpine:latest
+    runs-on: alpine-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v3.2.0
