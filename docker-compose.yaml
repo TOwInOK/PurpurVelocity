@@ -1,0 +1,20 @@
+version: "3"
+#stop using root as default... Just set up bases as root and use only user account!
+services:
+  minecraft:
+    image: "towinok/velocity:latest"
+    restart: always
+    container_name: "velocity"
+    environment:
+      PEOPLE: "20"
+      JAVAFLAGS: "-Djava.awt.headless=true -Dterminal.jline=false -Dterminal.ansi=true -XX:+UseZGC -XX:ConcGCThreads=8 -XX:MaxGCPauseMillis=20 -XX:ActiveProcessorCount=8 -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:+UseStringDeduplication -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:InitiatingHeapOccupancyPercent=20 -Dcom.mojang.eula.agree=true"
+    #change it for your system.
+    cpus: 1.0
+    mem_limit: ${MEMORYSIZE}
+    volumes:
+      - "/path/to/velocity_data:/data:rw"
+    ports:
+      - "25565:25565/tcp"
+    stdin_open: true
+    tty: true
+
