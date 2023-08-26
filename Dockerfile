@@ -34,7 +34,8 @@ ADD https://github.com/itzg/rcon-cli/releases/download/${RCON_CLI_VER}/rcon-cli_
 RUN mkdir -p /tmp/rcon-cli && \
     tar -x -C /tmp/rcon-cli -f /tmp/rcon-cli.tgz && \
     mv /tmp/rcon-cli/rcon-cli /usr/local/bin/ && \
-    rm -rf /tmp/rcon-cli /tmp/rcon-cli.tgz
+    rm -rf /tmp/rcon-cli /tmp/rcon-cli.tgz && \
+    apk del curl
 
 # Volumes for the external data
 VOLUME "/data"
@@ -60,8 +61,6 @@ WORKDIR /data
 
 COPY /docker-entrypoint.sh /opt/minecraft
 RUN chmod +x /opt/minecraft/docker-entrypoint.sh
-RUN apk del curl
-RUN apk del jq
 
 # Entrypoint
 ENTRYPOINT ["/opt/minecraft/docker-entrypoint.sh"]
