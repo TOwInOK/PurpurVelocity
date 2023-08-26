@@ -14,14 +14,12 @@ RUN /getvelocity.sh
 #Running environment
 FROM eclipse-temurin:20-jre-alpine AS runtime
 ARG TARGETARCH
-
 # Download and copy the gosu binary for arm64
 RUN set -eux; \
     apk add --no-cache curl && \
     curl -sL https://github.com/tianon/gosu/releases/download/1.16/gosu-amd64 -o /usr/local/bin/gosu && \
     chmod +x /usr/local/bin/gosu && \
     gosu nobody true
-
 
 # Working directory
 WORKDIR /data
