@@ -41,15 +41,8 @@ VOLUME "/data"
 # Main Port
 EXPOSE 25565/tcp
 
-# Memory size
-ARG people=20
-ENV PEOPLE=${people}
-#1.024 per one people
-ARG memory_size=(${people}*1.024) * 2
-#if u wanna set up it...
+ARG memory_size="128M"
 ENV MEMORYSIZE=${memory_size}
-#it's for mem_limit
-ENV MEMORYSIZE2X=(${memory_size}*2)
 
 # ZGC by default
 ARG java_flags="-Djava.awt.headless=true -Dterminal.jline=false -Dterminal.ansi=true -XX:+UseZGC -XX:MaxGCPauseMillis=10 -XX:ActiveProcessorCount=1 -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:+UseStringDeduplication -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:InitiatingHeapOccupancyPercent=20 -Dcom.mojang.eula.agree=true"
