@@ -1,3 +1,3 @@
 # PurpurVelocity
 
-Velocity for docker
+Velocity server on 20-jre-alpine
