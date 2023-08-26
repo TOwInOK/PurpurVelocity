@@ -60,8 +60,8 @@ WORKDIR /data
 
 COPY /docker-entrypoint.sh /opt/minecraft
 RUN chmod +x /opt/minecraft/docker-entrypoint.sh
-RUN apk del curl && \
-    apk del jq
+RUN apk del curl
+RUN apk del jq
 
 # Entrypoint
 ENTRYPOINT ["/opt/minecraft/docker-entrypoint.sh"]
